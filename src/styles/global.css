@@ -1,0 +1,96 @@
+/* Global CSS Variables */
+:root {
+  --primary-color: #ff0000;
+  --primary-dark: #cc0000;
+  --primary-light: #ff3333;
+  --accent-color: #ffcc00;
+  --background-dark: rgba(10, 10, 15, 0.8);
+  --background-light: rgba(30, 30, 40, 0.7);
+  --text-light: #ffffff;
+  --text-gray: #dddddd;
+  --card-background: rgba(25, 25, 30, 0.85);
+  --card-border: rgba(255, 0, 0, 0.3);
+  --shadow-color: rgba(255, 0, 0, 0.3);
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Loading Spinner */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 0, 0, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error Container */
+.error-container {
+  text-align: center;
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.error-container h3 {
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+.error-container button {
+  margin-top: 20px;
+}

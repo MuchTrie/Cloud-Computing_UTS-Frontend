@@ -1,0 +1,50 @@
+.animated-background-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.animated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, 
+    rgba(50, 0, 0, 0.8) 0%, 
+    rgba(30, 0, 0, 0.6) 20%, 
+    rgba(10, 0, 0, 0.4) 40%,
+    rgba(0, 0, 0, 0.8) 60%);
+}
+
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
