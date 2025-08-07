@@ -145,6 +145,82 @@ CSS modular untuk setiap komponen, memastikan isolasi style dan mencegah konflik
 ### 5. Deployment Pipeline
 GitHub Actions → AWS EC2 → Nginx, mengotomatisasi proses deployment ke production.
 
+## 🔄 Integrasi dengan Backend
+
+Aplikasi frontend ini dirancang untuk bekerja dengan [backend API](https://github.com/MuchTrie/Cloud-Computing_UTS-Backend). Berikut adalah cara mengintegrasikan keduanya:
+
+### Konfigurasi Koneksi
+
+1. **Sesuaikan URL API Backend**
+
+   Di file `src/App.js`, pastikan URL API mengarah ke backend yang benar:
+
+   ```javascript
+   // Untuk development
+   const API_URL = 'http://localhost:3000/api';
+   
+   // Untuk production (sesuaikan dengan domain/IP backend Anda)
+   // const API_URL = 'https://api.yourdomain.com/api';
+   
+   // Gunakan dalam axios calls
+   const response = await axios.get(`${API_URL}/products`);
+   ```
+
+2. **CORS Configuration**
+
+   Backend sudah dikonfigurasi dengan CORS untuk menerima request dari frontend. Jika Anda mengubah domain/port frontend, pastikan untuk memperbarui konfigurasi CORS di backend.
+
+### Menjalankan Keduanya Bersama
+
+1. **Development Mode**
+
+   ```bash
+   # Terminal 1: Jalankan Backend
+   cd Cloud-Computing_UTS-Backend
+   node server.js
+   
+   # Terminal 2: Jalankan Frontend
+   cd Cloud-Computing_UTS-Frontend
+   npm start
+   ```
+
+2. **Production Mode**
+
+   Untuk production, backend dan frontend sebaiknya di-deploy pada server yang terpisah atau container yang berbeda:
+
+   - Backend: Port 3000 (API)
+   - Frontend: Port 80/443 (via Nginx)
+
+### Alur Komunikasi
+
+1. **Fetch Products**: Frontend mengambil data produk dari endpoint `/api/products`
+2. **Product Details**: Detail produk diambil dari `/api/products/:id`
+3. **Add New Product**: Form produk mengirim data multipart ke `/api/products` dengan image file
+4. **Error Handling**: Frontend menangani berbagai response dari backend (success/error)
+
+### Arsitektur Keseluruhan
+
+```
+┌─────────────┐      HTTP/HTTPS      ┌─────────────┐
+│             │◄────────────────────►│             │
+│  Frontend   │                      │   Backend   │
+│  (React)    │     REST API Calls   │  (Node.js)  │
+│             │◄────────────────────►│             │
+└─────────────┘                      └──────┬──────┘
+                                            │
+                                            ▼
+                                     ┌─────────────┐
+                                     │   MySQL     │
+                                     │  Database   │
+                                     └──────┬──────┘
+                                            │
+                                            ▼
+                                     ┌─────────────┐
+                                     │   AWS S3    │
+                                     │  Storage    │
+                                     └─────────────┘
+```
+
 ---
 
 <p align="center">
