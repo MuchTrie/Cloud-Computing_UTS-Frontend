@@ -7,7 +7,7 @@
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
 <p align="center">
-  <img src="https://via.placeholder.com/800x400?text=Modern+E-Commerce+Frontend" alt="Project Preview" width="800">
+  <img src="src/img/screencapture-localhost-app.png" alt="Project Preview" width="800">
 </p>
 
 > ✨ Sebuah aplikasi e-commerce modern dengan UI elegan, efek visual menawan, dan fungsionalitas lengkap.
@@ -26,7 +26,9 @@
 - 🖼️ **Modal Produk** - Tampilan detail produk dalam modal fullscreen
 - 📝 **Manajemen Produk** - Tambah dan lihat produk dengan mudah
 - 🔄 **Integrasi Backend** - Terhubung dengan backend melalui RESTful API
-- 🌊 **Animasi Elegan** - Background animasi yang menarik
+- 🌊 **Animasi Elegan** - Background animasi yang menarik dengan efek pergerakan
+- 🎨 **Tema Elegan** - Kombinasi warna hitam dan merah dengan sentuhan neon untuk tampilan premium
+- 📱 **Responsive Design** - Tampilan yang menyesuaikan dengan berbagai ukuran layar
 - 🔄 **CI/CD Pipeline** - Deployment otomatis ke AWS EC2
 
 ## 🛠️ Teknologi yang Digunakan
@@ -99,6 +101,8 @@ Frontend/
 │   │   ├── ProductCard.js         # Card untuk menampilkan produk
 │   │   ├── ProductForm.js         # Form untuk menambah produk
 │   │   └── ProductList.js         # Grid layout untuk daftar produk
+│   ├── img/             # Gambar dan aset visual
+│   │   └── screencapture-localhost-app.png  # Screenshot tampilan aplikasi
 │   └── styles/          # File CSS untuk styling
 │       ├── animatedBackground.css # Styling untuk background animasi
 │       ├── app.css      # Style untuk layout utama
